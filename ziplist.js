@@ -1,13 +1,17 @@
 function zipList(first, second) {
   let result = [];
-  for (let i = 0; i < (2 * first.length); i++) {
-    if (i % 2 === 0) {
-      result[i] = second[i - 1];
-    } else {
-      result[i] = first[i];
-    }
+  for (let i = 0; i < first.length; i++) {
+    result.push(first[i]);
+    result.push(second[i]);
   }
   return result;
 }
 
 console.log(zipList(['a', 'b', 'c'], [1, 2, 3]));
+
+function zipListTheSimpleWay(first, second) {
+  let zips = _.zip(first, second);
+  return _.flatten(zips);
+}
+
+console.log(zipListTheSimpleWay(['a', 'b', 'c'], [1, 2, 3]));
